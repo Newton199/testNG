@@ -1,4 +1,4 @@
-package com;
+package com.example;
 
 import java.time.Duration;
 
@@ -6,10 +6,10 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
-import org.testng.asserts.SoftAssert;
+import org.testng.Assert;
 
-public class SoftA {
-    public static void main(String[] args) {
+public class Handlinghard_Assert {
+     public static void main(String[] args) {
         ChromeOptions options = new ChromeOptions();
         options.setBinary("C:\\Program Files\\BraveSoftware\\Brave-Browser\\Application\\brave.exe");
         options.addArguments("--remote-allow-origins=*");
@@ -20,7 +20,7 @@ public class SoftA {
 
         String url = "https://chroma-tech-academy.mexil.it/static_page/";
         driver.get(url);
-        // Changing the name of string to check actual and expected variables
+
         String actualPageTitle = driver.getTitle();
         String expectedPageTitle = "Chroma Tech Academy";
 
@@ -30,24 +30,27 @@ public class SoftA {
         WebElement actualInstructorJohnText = driver.findElement(By.xpath("(//*[contains(text(),'John')])[1]"));
         String expectedInstructorJohnText = "John";
 
-        // Step1 Create an object/Instance of the soft assert class
+         Assert.assertEquals(actualPageTitle, expectedPageTitle); 
 
-        SoftAssert softAssert = new SoftAssert();
 
-        // step2: perform assertion
+         Assert.assertEquals(actualPageURL,expectedPageURL);
 
-        // Verifying page title
+         try {
+              Assert.assertEquals(actualPageURL,expectedPageURL);
+            
+         } catch (AssertionError e) {
 
-        softAssert.assertEquals(actualPageTitle, expectedPageTitle);
-        // verifying url
-        softAssert.assertEquals(actualPageURL, expectedPageURL);
-        // verifying instructor
-        softAssert.assertEquals(actualInstructorJohnText.getText(), expectedInstructorJohnText);
-        softAssert.assertTrue(actualInstructorJohnText.getText().contains("something"), "verifying john text using");
+            e.printStackTrace();
 
-        softAssert.assertAll();
+         }
 
-        driver.quit();
+         Assert.assertEquals(actualInstructorJohnText.getText(), expectedInstructorJohnText);
 
-    }
+          driver.quit();
+
+
+
+        
+    
+}
 }
