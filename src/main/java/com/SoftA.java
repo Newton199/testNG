@@ -4,10 +4,9 @@ import java.time.Duration;
 
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
-import org.testng.Assert;
 
-public class test {
-  public static void main(String[] args) {
+public class SoftA {
+    public static void main(String[] args){
     ChromeOptions options = new ChromeOptions();
     options.setBinary("C:\\Program Files\\BraveSoftware\\Brave-Browser\\Application\\brave.exe");
     options.addArguments("--remote-allow-origins=*");
@@ -19,21 +18,7 @@ public class test {
     String url = "https://chroma-tech-academy.mexil.it/static_page/";
     driver.get(url);
 
-    String actualPageTitle = driver.getTitle();
-    String expectedPageTitle = "Chroma Tech Academy";
-    Assert.assertEquals(actualPageTitle, expectedPageTitle, "---VERIFYING PAGE TITLE---");
-    System.out.println("Testing");
-// This is  Hard asssertion done
-//f a hard assertion fails, it immediately stops the execution of the test script
-   boolean dopagetitleMatch = actualPageTitle.contentEquals(expectedPageTitle);
 
-    Assert.assertTrue(dopagetitleMatch);
-
-
-
-
-
-    driver.quit();
-
-  }
+    
+    }
 }
