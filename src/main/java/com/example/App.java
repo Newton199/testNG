@@ -25,10 +25,12 @@ public class App
         driver.get(url);
 
         String actualPageTitle = driver.getTitle();
+        System.out.println(actualPageTitle);
         String expectedPageTitle ="Chroma Tech Academy";
+        System.out.println(expectedPageTitle);
 
         driver.quit();
-        
+
 
 
 }
